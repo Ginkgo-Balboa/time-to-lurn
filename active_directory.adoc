@@ -1,0 +1,144 @@
+:toc:
+:toc-title: Indexe
+
+= Active Directory
+
+== Roles FSMO
+
+=== Définition
+
+*Flexible Single Master Operation*
+
+Dans une infrastrucutre, il y a plusieures *controleurs de domaines*.
+Pour un *controleur de domaine*, détenir un rôle siginfie qu'il est capable de "*réaliser une action particulière au sein de l'annuaire" notamment pour éviter les risques de conflits*.
+
+Il y a *cinq roles FSMO* :
+
+* Deux sont uniques au sein de la forêt :
+
+. *Maître d'atribution des noms de domaines*
+** Distribue / renomme et gère les *noms de domaine*.
+
+. *Controleur de schéma*
+** Le schéma désigne la structure de l’annuaire Active Directory, le schéma est donc un élément critique au sein de l’environnement Active Directory.Gère la *structure de l'annuaire* Active Directory au sein de la forêt.
+
+* Et trois sont uniques au sein d'un domaine :
+
+. *Maître RID*
+
+** Les objets créés au sein de l'annuaire Active Directory dispose de plusieurs indentifiants uniques. Il y a nonamment le *GUID* et le *DistinguishedName* mais aussi l'identifiant de sécurité *SID* et c'est ce dernier qui nous intéresse dans les cadre du maitre *RID*. Le maître *RID* Attribue des *pools RID* aux DC pour générer les SID des futurs objets pour s'assurer que les objets *SID* soient uniques.
+
+. *Maître d'infrastructure*
+** Responsable des références générés lorsqu'il y a des interractions entre plusieurs domaines. Créé des liens dans le cas d'ajour de domaines.Gérer les références entre plusieurs objets
+
+. *Emulateur PDC*
+** Gestion de l'heure (serveur NTP) et des mots de passes et des comptes.
+
+=== Migration des rôles
+
+La façons la plus efficace d'administrer un seveur windows passe par l'utilisation de PowerShell.
+
+Dans un terminal Powershell en tant qu'administrateur :
+
+Pour savoir sur quels serveurs sont présents les rôles FSMO
+
+[source, PowerShell]
+----
+netom query fsmo
+----
+
+Pour migrer les 5 rôles en une commande :
+[source, Powershell]
+----
+Move-ADDirectoryServerOperationMasterRole -Identity “Serveur de destination” –OperationMasterRole PDCEmulator,RIDMaster,InfrastructureMaster,SchemaMaster,DomainNamingMaster
+----
+
+Il est également possible de migrer les rôles en utilisant le chiffre qui correspond au rôle FSMO :
+
+* 0 = PDCEmulator
+* 1 = RIDMaster
+* 2 = InfrastructureMaster
+* 3 = SchemaMaster
+* 4 = DomainNamingMaster
+
+== Gérer les permissions AD DS et délégations de contrôle
+
+=== Délégation de contrôle à un utilisateur
+
+* *Clic droit* sur l'OU où se situe l'utilisateur auquel on souhaite attribuer les droits dans la console *_Utilisateurs et ordinateurs Active Directory_*.
+** _Délégation de contrôle_
+** _Ajouter_
+** Renseigner le nom de l'utilisateur
+** Cocher la ou les tâches à déléguer.
+
+=== Création d'une console pour la tâche déléguée à l'utilisateur
+
+* ouvir la console _mmc_ via le *cmd* : 
+
+** _Ajouter ou supprimer des composants logiciels enfichables_
+
+** _Utilisateurs et ordinateurs Active Directory_
+
+** _Ajouter_
+
+** _Nouvelle vue de la liste des tâches_ et compléter le clickodrome
+
+** Se rendre sur l'OU que l'on souhaite déléguer à l'utilisateur, clic droit
+
+** _Nouvelle vue de la liste des tâches_ - compléter le clickodrome et cocher _L'élément d'arborescence selectionné_ puis finir le clickodrome à nouveau.
+
+. 
+
+== Gestion des comptes utilisateurs
+
+=== Création d'un modèle de compte pour la création d'utilisateur 
+
+Dans _utilisateurs et ordinateurs Active Directory_, clic droit sur l'OU concernée :
+
+** _Nouveau_
+** _Utilisateur_ 
+*** Commencer son nom par un _ permet de faire remonter cet utilisateur type en haut de la liste.
+*** Renseigner au maximum cet utilisateur type
+** Puis copier cet utilisateur et l'éditer !
+
+== Gestion des comptes ordinateur
+
+== Gestion des groupes
+
+Permet de créer des règles à appliquer à un grand nombre d'utilisateurs sans avoir à renseigner manuellement chaque autorisations / règles à la maion.
+
+On créé un groupe dans une _OU_ en faisant _clic droit_:
+
+* *Etendue de groupe*
+
+** Domaine local = sous domaine
+
+** Globale = sur le domaine
+
+** Universelle = sur toute la fôret
+
+
+* *Type de groupe* :
+
+** Distribution : type de groupe pour courrier électroniques
+
+** Sércurité : type de groupe pour attribution des droits et autorisations
+
+
+== Gérer les Unités Organisationnelles - OU
+
+
+Une OU se créé dans la console _Utilisateurs et ordinateurs Active Directory_ avec un clic droit, puis on renseigne le nom dans la boîte de dialogue
+
+Les _OU_ permettent de :
+
+* *hierachiser l'annuaire en structure logique.*
+
+* gérer des *Group User Policy* ou stratégie de groupe
+
+* créer des *Délégations de contrôle*
+
+
+Pour supprimer une _OU_ protégée contre la suppression, il faut dans _affichage_ activer les _fonctionnalités avancées_. 
+
+== Utilisation de PowerShell pour l'administration d'un Active Directory
