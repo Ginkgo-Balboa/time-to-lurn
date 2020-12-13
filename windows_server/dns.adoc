@@ -1,0 +1,73 @@
+:toc:
+:toc-title: Indexe
+
+= Domain Name Server sur Windows Server
+
+== Histoire
+
+Aux débuts d'internet, on utilisait le fichier _hosts_ pour les enregistrements DNS.
+
+== Nouveauté dans la versoin 2016
+
+* *DNS Policies* - On peut choisir des stratégies de réponses DNS basées sur l'IP, l'heure...
+
+* *IPv6 Root Hints* - Résolution des noms avec les serveurs racines en IPv6
+
+* *Response Rate Limiting* - Protection contre les attaques DDos
+
+* *DNS Authorization Name Entity* - Protection contre les attaques _Man in the Middle_ en utilisant _Transport Layer Security Authentication_
+
+* *Unknown Record Support* - Ajout d'enregistrements DNS non-supportés par Microsof
+
+* *Extended PowerShell Support* - 27 nouvelles commandes _PowerShell_
+
+== Configuration du Service DNS dans Windows Server
+
+Le DNS associera les noms aux adresses IP, s'assurera de l'unicité des noms et ajoutera les hôtes par DHCP.
+
+=== Best practices 
+
+* Mot de passe fort pour l'administrateur
+
+* Faire les mises à jour de sécurité
+
+* Installer le DNS avant l'AD
+
+* Utiliser une adresse IP statique
+
+== Console DNS
+
+* *Indication de racine* 
+** Les indications de racine résolvent les requêtes des zones qui n'existent pas sur le serveur DNS. Elles seront uniquement utilisées si les redirecteures ne sont pas configurés ou s'ils ne répondent pas.
+
+* *Redirecteurs*
+** Les redirecteures sont des serveurs DNS qui permettent à ce serveur de résoudre les requêtes DNS liées aux enregistrements n'ayant pu être résolus.
+
+* _Zone de recherche directe_
+** Conversion d'adresses IPs vers des noms de domaines
+
+* _Zone de recherche inversée_
+** Conversion de nom de domaines vers des adresses IPs
+
+* _Points d'approbation_
+** Clé cryptographique d'une zone signée.
+
+* _Redirecteurs conditionnels_
+** Serveur DNS qui transmets ses requètes
+
+== Recursive vs Iterative queries
+
+Pour lister le cache du resolver
+
+[source, cmd]
+----
+ipconfig /displaydns
+----
+
+Il est conseillé de désactiver les requètes recursives si
+
+* Le DNS est dans un réseau protégé
+
+* Les serveurse DNS qui ont les requètes recursives autorisées sont vulnérables aux attaques Ddos.
+
+* Le serveur fonctionnera, mais on ne pourra plus interroger les serveurs redirecteurs.
