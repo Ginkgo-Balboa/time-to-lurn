@@ -11,7 +11,7 @@
 
 * UNTAG / ACCESS = La trame *détaguée* ou en mode *access*. Elle ne comporte pas le tag vlan 802.1q. Ce mode est utilisé pour la connection de materiel réseau non capable de lire ce tag.
 
-Ceci n'a rien à voir avec le fait qu'une vLAN soit assignée au port d'un switch
+Ceci n'a rien à voir avec le fait qu'une vLAN soit assignée au port d'un switch. En effet, une vlan peut être assignée en mode tag ou untag.
 
 https://www.youtube.com/watch?v=A9lMH0ye1HU[la vidéo Youtube la plus claire que j'ai vu.]
 
