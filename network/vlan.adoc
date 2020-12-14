@@ -1,10 +1,11 @@
 :toc:
 :toc-title: Indexe
 
-TAG
-UNTAG
+* TAG / TRUNK    = La trame à la sortie du switch est *tagguée* ou en mode *trunk*. Elle comporte le tag vlan 802.1q. Ce mode est utilisé pour la connection de materiel réseau capable de lire ce tag.
 
-TRUNK
-ACCESS
+* UNTAG / ACCESS = La trame à la sortie du matériel réseau est *détaguée* ou en mode *access*. Elle comporte pas le tag vlan 802.1q. Ce mode est utilisé pour la connection de materiel réseau non capable de lire ce tag.
+
+
+
 
 https://www.youtube.com/watch?v=A9lMH0ye1HU[la vidéo Youtube la plus claire que j'ai vu.]
