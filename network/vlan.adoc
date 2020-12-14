@@ -1,11 +1,18 @@
 :toc:
 :toc-title: Indexe
 
-* TAG / TRUNK    = La trame à la sortie du switch est *tagguée* ou en mode *trunk*. Elle comporte le tag vlan 802.1q. Ce mode est utilisé pour la connection de materiel réseau capable de lire ce tag.
+= VLAN
 
-* UNTAG / ACCESS = La trame à la sortie du matériel réseau est *détaguée* ou en mode *access*. Elle comporte pas le tag vlan 802.1q. Ce mode est utilisé pour la connection de materiel réseau non capable de lire ce tag.
+== VLAN de Niveau 1
 
+== VLAN de Niveau 2
 
+* TAG / TRUNK    = La trame ethernet est *tagguée* ou en mode *trunk*. Elle comporte le tag vlan 802.1q. Ce mode est utilisé pour la connection de materiel réseau capable de lire ce tag.
 
+* UNTAG / ACCESS = La trame *détaguée* ou en mode *access*. Elle ne comporte pas le tag vlan 802.1q. Ce mode est utilisé pour la connection de materiel réseau non capable de lire ce tag.
+
+Ceci n'a rien à voir avec le fait qu'une vLAN soit assignée au port d'un switch
 
 https://www.youtube.com/watch?v=A9lMH0ye1HU[la vidéo Youtube la plus claire que j'ai vu.]
+
+== VLAN de Niveau 3
