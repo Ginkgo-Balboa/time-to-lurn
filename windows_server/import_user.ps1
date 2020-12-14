@@ -2,18 +2,18 @@
  
 #Déclaration des variables
 
-$Domain = "mosti"  				        	        # Déclarez ici votre Domaine
-$Ext = "lan"  						        	        # Déclarez ici l'extension (com, info, lan, local....)
-$Server ="dc1.mosti.lan" 	        		     	# Déclarez ici le serveur d'exécution
-$FQDN ="@mosti.lan"  			        		      # Déclarez ici le nom du Domaine précédé de "@" cela servira pour la création du UserPrincipalName
-$LogFolder = "C:\LogMosti"			            # Déclarez ici l'emplacement du répertoire de Log
-$Folder = "LogMosti"					              # Déclarez ici le nom du répertoire de Log
+$Domain = "mosti"  				        	            # Déclarez ici votre Domaine
+$Ext = "lan"  						        	               # Déclarez ici l'extension (com, info, lan, local....)
+$Server ="dc1.mosti.lan" 	        		   	    # Déclarez ici le serveur d'exécution
+$FQDN ="@mosti.lan"  			        		          # Déclarez ici le nom du Domaine précédé de "@" cela servira pour la création du UserPrincipalName
+$LogFolder = "C:\LogMosti"			               # Déclarez ici l'emplacement du répertoire de Log
+$Folder = "LogMosti"					                   # Déclarez ici le nom du répertoire de Log
 $LogFile = "C:\LogMosti\LogScript.txt"     	# Déclarez ici l'emplacement du fichiers de Log du script
-$File = "LogScript.txt" 			            	# Déclarez ici le nom du fichier de Log du script
-$LogError = "C:\LogMosti\LogError.txt"    	# Déclarez ici l'emplacement du fichier d'erreur global
-$LogCatch = "C:\LogMosti\LogCatch.txt"    	# Déclarez ici l'emplacement du fichier de gestion de l'erreur
-$FileCatch = "LogCatch.txt" 		          	# Déclarez ici le nom du fichier de gestion de l'erreur
-$CSV = "C:\Import_Users.csv"		          	# Déclarez ici le chemin d'accès à votre fichier csv
+$File = "LogScript.txt" 			            	    # Déclarez ici le nom du fichier de Log du script
+$LogError = "C:\LogMosti\LogError.txt"    	 # Déclarez ici l'emplacement du fichier d'erreur global
+$LogCatch = "C:\LogMosti\LogCatch.txt"    	 # Déclarez ici l'emplacement du fichier de gestion de l'erreur
+$FileCatch = "LogCatch.txt" 		          	   # Déclarez ici le nom du fichier de gestion de l'erreur
+$CSV = "C:\Import_Users.csv"		          	   # Déclarez ici le chemin d'accès à votre fichier csv
  
 # Avant de commencer nous allons créer un répertoire et un fichier pour les logs
 if (!(Test-Path $logfolder)) {
@@ -26,7 +26,7 @@ if (!(Test-Path $logfolder)) {
 Else {
     Write-Output "Le dossier $Folder existe déjà!" | Add-Content $LogFile
         }
- 
+
 # Import du module Active Directory et import du fichier csv
 Import-Module ActiveDirectory
  
