@@ -5,7 +5,8 @@
 
 == VLAN de Niveau 1
 
-Un VLAN de niveau 1 (aussi appelés VLAN par port, en anglais Port-Based VLAN) définit un réseau virtuel en fonction des ports de raccordement sur le commutateur ;
+Un VLAN de niveau 1 (aussi appelés VLAN par port, en anglais Port-Based VLAN) définit un réseau virtuel en fonction des ports de raccordement sur le commutateur.
+On les appelle vLANs statiques ou, “port-based” ou “port-centric” : un port de commutateur appartient “statiquement” à un VLAN. Ce type de configuration nécessite un configuration manuelle de chaque port. C’est encore l’implémentation la plus courante.
 
 === TAG / TRUNK
 
@@ -21,6 +22,8 @@ https://www.youtube.com/watch?v=A9lMH0ye1HU[la vidéo Youtube la plus claire que
 
 Un VLAN de niveau 2 (également appelé VLAN MAC, VLAN par adresse IEEE ou en anglais MAC Address-Based VLAN) consiste à définir un réseau virtuel en fonction des adresses MAC des stations. Ce type de VLAN est beaucoup plus souple que le VLAN par port car le réseau est indépendant de la localisation de la station
 
+On les appelle également vLANs dynamiques : l’attribution d’un VLAN est effectuée dynamiquement sur base d’une adresse physique (MAC), logique (IP) ou de crédits quelconques avec IEEE 802.1X / EAP. Ce type d’implémentation est nécessairement la plus coûteuse et demande d’autant plus de composants d’infrastructure et de compétence.
+
 == VLAN de Niveau 3
 
 === Le VLAN par sous-réseau
@@ -30,3 +33,6 @@ Un VLAN de niveau 2 (également appelé VLAN MAC, VLAN par adresse IEEE ou en an
 === Le VLAN par protocole
 
 (en anglais Protocol-Based VLAN) permet de créer un réseau virtuel par type de protocole (par exemple TCP/IP, IPX, AppleTalk, etc.), regroupant ainsi toutes les machines utilisant le même protocole au sein d'un même réseau.
+
+== Sources :
+https://cisco.goffinet.org/ccna/vlans/concepts-vlan-cisco/[Les vLAN chez Cisco]
