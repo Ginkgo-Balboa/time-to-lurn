@@ -1,0 +1,105 @@
+:toc:
+:toc-title: Sommaire
+
+= VMware ESXi
+
+== Définitons et vocabulaire
+
+Un hôte, un ESXi, bare metal.. Ce sont des serveures physiques qui font tourner des serveurs virtuels faisant tourner eux mêmes des services.
+
+Les services sont installés sur un OS, lui-même installé sur un hôte.
+
+La virtualisation permet d'éxecuter plusieurs *systèmes d'exploitations sur un même serveur physique* faisant eux même tourner *un ou plusieurs serveices*.
+
+On peut virtualiser :
+
+* des serveurs
+* des applications
+* des postes de travail
+* du stockage
+* du réseau (nsx)
+
+La virtualisation permet également de *consolider l'infrastructure* et de *faciliter la gestion* des machines virtuelles car celle-ci sont indépendantes du matériel physique. Elles sont donc faciles à déplacer et à isoler des autres. Les machine virtuelles sont moins soumises à l'obsolescence du matériel.
+
+== Software Defined DataCenter 
+
+Le *Software Defined DataCenter* : terme créé au VMworld 2012 par le CTO de Vmware Steve Herrod.
+
+Cette notion donne naissance à 
+
+* IT-as-a-Service
+* Infrastructure As A Service
+* Platform As A Service
+* Software Defined Storage
+* Software Defined Network
+
+Ceci à permi de passer d'un version de l'informatique en silot (*Network* / *Server* / *Application* / *Server*).
+
+La virtualisation 1.0 date de 2005 et a été mise en production en 2008. C'est réellement en 2013 que l'on a eu des datacenter entièrement virtualisés. Ceci à permis un gain de productivité et une baisse des couts d'exploitation.
+
+La rupture de la dépendance physique / software permet la migration rapide et l'automatisation du déploiement. Les économies faites par la virtualisation permettent également de gagner du temps ! Il n'est donc plus la peine monopoliser des moyens pour déployer une infrastructure.
+
+== Montage du LAB 
+
+* *RAM* 16 GO
+* *CPU* I7
+* *Stockage* pour tout le LAB 200 GO ou 30 GO pour la formation ESXi
+
+== vSwitches
+
+image::img/networking_vswitch.PNG[]
+
+Les *vSwitches* sont des appareils de niveau 2 du modele OSI et sont *connectés aux cartes réseaux physiques* via les *VMnics* (cartes réseaux virtuelles inclues dans les machines virtuelles).
+
+vSwitch : 
+
+* MTU Size : 1500 par défaut. Si on la change ici à 9000 par exemple (taille d'une jumbo frame) il faut la changer partout dans la même LAN ou vLAN
+
+Il est possible d'associer des vLANs au vSwiches: il est possible de créer des groupes de ports avec des vLANs
+
+* Security
+
+* Shaping
+
+* Teamping and Failover
+** Load Balancing
+** Failure detection
+** Notify swiches
+** Failback
+
+* Failover
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
