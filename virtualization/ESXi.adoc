@@ -47,7 +47,7 @@ La rupture de la dépendance physique / software permet la migration rapide et l
 
 == vSwitches
 
-image::img/networking_vswitch.PNG[]
+image::https://github.com/Ginkgo-Balboa/time-to-lurn/blob/main/img/networking_vswitch.PNG[]
 
 Les *vSwitches* sont des appareils de niveau 2 du modele OSI et sont *connectés aux cartes réseaux physiques* via les *VMnics* (cartes réseaux virtuelles inclues dans les machines virtuelles).
 
