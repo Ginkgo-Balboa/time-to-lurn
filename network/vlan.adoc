@@ -5,6 +5,8 @@
 
 == VLAN de Niveau 1
 
+Egalement appelées vLANs par port. Les vLANs sont déclarées sur les ports du switch.
+
 == VLAN de Niveau 2
 
 Sur une switch, il y a plusieurs manière d'attribuer des vLANs :
