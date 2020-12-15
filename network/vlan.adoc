@@ -8,9 +8,12 @@
 Un VLAN de niveau 1 (aussi appelés VLAN par port, en anglais Port-Based VLAN) définit un réseau virtuel en fonction des ports de raccordement sur le commutateur ;
 
 === TAG / TRUNK
+
 La trame ethernet est *tagguée* ou en mode *trunk*. Elle comporte le tag vlan 802.1q. Ce mode est utilisé pour la connection de materiel réseau capable de lire ce tag. Il est possible de faire passer plusieurs vLAN dans ce mode. On parle de mode trunk chez Cisco et de mode tag chez les autres. 
 
-=== UNTAG / ACCESS = La trame *détaguée* ou en mode *access*. Elle ne comporte pas le tag vlan 802.1q. Ce mode est utilisé pour la connection de materiel réseau non capable de lire ce tag. Ce mode ne laisse passer qu'une seule vLAN. On parle de mode access chez Cisco et de mode untag chez les autres fournisseurs.
+=== UNTAG / ACCESS
+
+La trame *détaguée* ou en mode *access*. Elle ne comporte pas le tag vlan 802.1q. Ce mode est utilisé pour la connection de materiel réseau non capable de lire ce tag. Ce mode ne laisse passer qu'une seule vLAN. On parle de mode access chez Cisco et de mode untag chez les autres fournisseurs.
 
 https://www.youtube.com/watch?v=A9lMH0ye1HU[la vidéo Youtube la plus claire que j'ai vu.]
 
@@ -20,6 +23,10 @@ Un VLAN de niveau 2 (également appelé VLAN MAC, VLAN par adresse IEEE ou en an
 
 == VLAN de Niveau 3
 
-=== Le VLAN par sous-réseau (en anglais Network Address-Based VLAN) associe des sous-réseaux selon l'adresse IP source des datagrammes. Ce type de solution apporte une grande souplesse dans la mesure où la configuration des commutateurs se modifient automatiquement en cas de déplacement d'une station. En contrepartie une légère dégradation de performances peut se faire sentir dans la mesure où les informations contenues dans les paquets doivent être analysées plus finement.
+=== Le VLAN par sous-réseau
 
-=== Le VLAN par protocole (en anglais Protocol-Based VLAN) permet de créer un réseau virtuel par type de protocole (par exemple TCP/IP, IPX, AppleTalk, etc.), regroupant ainsi toutes les machines utilisant le même protocole au sein d'un même réseau.
+(en anglais Network Address-Based VLAN) associe des sous-réseaux selon l'adresse IP source des datagrammes. Ce type de solution apporte une grande souplesse dans la mesure où la configuration des commutateurs se modifient automatiquement en cas de déplacement d'une station. En contrepartie une légère dégradation de performances peut se faire sentir dans la mesure où les informations contenues dans les paquets doivent être analysées plus finement.
+
+=== Le VLAN par protocole
+
+(en anglais Protocol-Based VLAN) permet de créer un réseau virtuel par type de protocole (par exemple TCP/IP, IPX, AppleTalk, etc.), regroupant ainsi toutes les machines utilisant le même protocole au sein d'un même réseau.
