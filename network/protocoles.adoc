@@ -1,0 +1,23 @@
+:toc:
+:toc-titles: Sommaire
+
+= Liste des protocoles réseaux
+
+== BGP
+== FTP
+== HTTP
+== SMTP
+== SSH
+== Telnet
+
+Port 23 en TCP. Créé en 1969. Défini dans la https://tools.ietf.org/html/rfc15[RFC 15]
+puis complété dans la https://tools.ietf.org/html/rfc855[RFC 855] 
+Telnet (terminal network ou telecommunication network, ou encore teletype network) est un protocole de type client-serveur s'appuyant sur TCP.
+
+
+Telnet was developed in 1969 beginning with RFC 15, extended in RFC 855, and standardized as Internet Engineering Task Force (IETF) Internet Standard STD 8, one of the first Internet standards. The name stands for "teletype network".[1][2]
+
+Telnet est un protocole de couche 7 qui permet une communication client-serveur sur le port 23 via l'émulation d'un terminal virtuel.
+
+
+== TFTP
